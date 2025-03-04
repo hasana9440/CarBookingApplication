@@ -1,0 +1,27 @@
+<div class="container">
+  <div *ngFor="let car of cars; let i = index" class="car-card" [ngClass]="'card-style-' + (i % 4)">
+    <div class="car-content">
+      <!-- Car Image -->
+      <div class="car-image-container">
+        <img class="car-image" [src]="car.processedImg" alt="Car Image">
+      </div>
+
+      <!-- Car Details -->
+      <div class="car-details">
+        <h2 class="car-title">{{ car.brand }} {{ car.name }}</h2>
+        <p class="car-description">{{ car.description }}</p>
+        <hr>
+        <h5 class="car-info">
+          Price: <b>${{ car.price }}</b> |
+          Color: <b>{{ car.color }}</b> |
+          Transmission: <b>{{ car.transmission }}</b> |
+          Type: <b>{{ car.type }}</b>
+        </h5>
+        <hr>
+        <div class="button-group">
+          <button class="btn btn-warning" routerLink="/customer/book/{{car.id}}">Book Car</button>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>

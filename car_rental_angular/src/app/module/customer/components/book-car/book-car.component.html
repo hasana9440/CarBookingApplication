@@ -1,0 +1,79 @@
+<div class="container mt-4">
+  <!-- Car Card -->
+  <div class="row align-items-center car-card shadow-sm p-3 mb-4 bg-white rounded">
+    <!-- Car Image -->
+    <div class="col-md-3 text-center">
+      <img
+        class="car-icon img-fluid rounded"
+        [src]="processedImage"
+        alt="Car Image"
+      />
+    </div>
+
+    <!-- Car Details -->
+    <div class="col-md-9">
+      <h2 class="car-title fw-bold">
+        {{ car.brand }} {{ car.name }}
+      </h2>
+      <p class="car-description text-muted">{{ car.description }}</p>
+      <hr />
+      <div class="row car-details">
+        <div class="col-md-3">
+          <span class="text-secondary">Price:</span>
+          <b class="text-primary">${{ car.price }}</b>
+        </div>
+        <div class="col-md-3">
+          <span class="text-secondary">Color:</span>
+          <b>{{ car.color }}</b>
+        </div>
+        <div class="col-md-3">
+          <span class="text-secondary">Transmission:</span>
+          <b>{{ car.transmission }}</b>
+        </div>
+        <div class="col-md-3">
+          <span class="text-secondary">Type:</span>
+          <b>{{ car.type }}</b>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard Filter -->
+  <div class="dashboard-filter mt-4">
+    <form [formGroup]="validateForm">
+      <div class="row g-3 align-items-end">
+        <!-- From Date -->
+        <div class="col-md-3">
+          <label for="fromDate" class="form-label">From Date</label>
+          <input
+            type="date"
+            id="fromDate"
+            class="form-control"
+            formControlName="fromDate"
+          />
+        </div>
+
+        <!-- To Date -->
+        <div class="col-md-3">
+          <label for="toDate" class="form-label">To Date</label>
+          <input
+            type="date"
+            id="toDate"
+            class="form-control"
+            formControlName="toDate"
+          />
+        </div>
+
+        <!-- Book Car Button -->
+        <div class="col-md-3">
+          <button
+            class="btn btn-primary w-100"
+            (click)="bookCar(validateForm.value)"
+          >
+            Book Car
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

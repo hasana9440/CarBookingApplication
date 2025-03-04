@@ -1,0 +1,65 @@
+<div class="registration-container">
+  <div class="registration-form">
+    <h2 class="form-title">Registration Form</h2>
+    <form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
+      
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          [(ngModel)]="user.name" 
+          required
+          class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          [(ngModel)]="user.email" 
+          required
+          class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          [(ngModel)]="user.password" 
+          required
+          [pattern]="passwordPattern"
+          minlength="8"
+          class="form-control" />
+        <small *ngIf="registrationForm.controls['password']?.errors?.['pattern']" class="text-danger">
+          Password must contain at least 1 uppercase letter, 1 lowercase letter, and 1 special character.
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label for="cpassword">Confirm Password</label>
+        <input 
+          type="password" 
+          id="cpassword" 
+          name="cpassword" 
+          [(ngModel)]="user.cpassword" 
+          required
+          [pattern]="passwordPattern"
+          minlength="8"
+          class="form-control" />
+        <small *ngIf="registrationForm.controls['cpassword']?.errors?.['pattern']" class="text-danger">
+          Password must contain at least 1 uppercase letter, 1 lowercase letter, and 1 special character.
+        </small>
+      </div>
+
+      <button type="submit" [disabled]="!registrationForm.form.valid" class="btn btn-submit">Register</button>
+
+      <p class="mt-4">Or  <b><a class="login-link" routerLink="/login">Login</a></b></p>
+    </form>
+  </div>
+</div>

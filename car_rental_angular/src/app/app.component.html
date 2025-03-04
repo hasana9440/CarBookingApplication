@@ -1,0 +1,96 @@
+<div *ngIf="!isAdminLoggedIn && !isCustomerLoggedIn">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+     <div class="container-fluid">
+       <a class="navbar-brand" href="#">Car Rental Service </a>
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav ms-auto"> <!-- ✅ Moves links to the right -->
+           <!-- <li class="nav-item">
+             <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+           </li> -->
+           <li class="nav-item">
+             <a class="nav-link" routerLink="/register" routerLinkActive="active">Sign Up</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" routerLink="/login" routerLinkActive="active">Log In</a>
+           </li>
+         </ul>
+       </div>
+     </div>
+   </nav>
+</div>
+
+<div *ngIf="isAdminLoggedIn">
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <div class="container-fluid">
+     <a class="navbar-brand" href="#">Car Rental Service </a>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarNav">
+       <ul class="navbar-nav ms-auto"> <!-- ✅ Moves links to the right -->
+         <!-- <li class="nav-item">
+           <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+         </li> -->
+         <li class="nav-item">
+           <a class="nav-link" routerLink="/admin/dashboard" routerLinkActive="active">DashBoard</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" routerLink="/admin/car" routerLinkActive="active">Add car</a>
+         </li>
+         <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/bookings" routerLinkActive="active">Bookings</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/search" routerLinkActive="active">Search</a>
+        </li> -->
+         <li class="nav-item">
+           <a class="nav-link"  (click)="logout()"  routerLinkActive="active">Log Out</a>
+         </li>
+       </ul>
+     </div>
+   </div>
+ </nav>
+ 
+</div>
+
+
+<!-- Customer login nav bar -->
+
+
+<div *ngIf="isCustomerLoggedIn">
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <div class="container-fluid">
+     <a class="navbar-brand" href="#">Car Rental Service </a>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarNav">
+       <ul class="navbar-nav ms-auto"> <!-- ✅ Moves links to the right -->
+         <!-- <li class="nav-item">
+           <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+         </li> -->
+         <li class="nav-item">
+           <a class="nav-link" routerLink="/customer/dashboard" routerLinkActive="active">DashBoard</a>
+         </li>
+         <li class="nav-item">
+          <a class="nav-link" routerLink="/customer/my_bookings" routerLinkActive="active">My Bookings</a>
+        </li>
+         <li class="nav-item">
+           <a class="nav-link"  (click)="logout()" routerLinkActive="active">Log Out</a>
+         </li>
+       </ul>
+     </div>
+   </div>
+ </nav>
+ 
+</div>
+
+<div class="container mt-4">
+ <router-outlet></router-outlet>
+</div>

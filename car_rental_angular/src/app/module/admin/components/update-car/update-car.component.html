@@ -1,0 +1,82 @@
+<div class="container mt-5">
+    <div class="card p-4">
+      <h2 class="text-center mb-4">Update Car</h2>
+  
+      <form [formGroup]="updateForm">
+        <!-- File Upload -->
+        <div class="form-group">
+          <label>Select a File</label>
+          <input type="file" class="form-control-file" accept="image/png, image/gif, image/jpeg" (change)="onFileSelected($event)" />
+        </div>
+        <!-- Image Preview -->
+        <div class="text-center">
+          <img *ngIf="existingImage" [src]="existingImage" alt="Existing Image" class="img-thumbnail" />
+        </div>
+  
+        <!-- Select Brand -->
+        <div class="form-group">
+          <label>Select a Brand</label>
+          <select class="form-control custom-select" formControlName="brand">
+            <option *ngFor="let brand of listOfBrands" [value]="brand">{{ brand }}</option>
+          </select>
+        </div>
+  
+        <!-- Car Name -->
+        <div class="form-group">
+          <label>Car Name</label>
+          <input type="text" class="form-control" formControlName="name" placeholder="Enter Car Name" />
+        </div>
+  
+        <!-- Select Type -->
+        <div class="form-group">
+          <label>Select Type</label>
+          <select class="form-control custom-select" formControlName="type">
+            <option *ngFor="let type of listOfType" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+  
+        <!-- Transmission -->
+        <div class="form-group">
+          <label>Select Transmission</label>
+          <select class="form-control custom-select" formControlName="transmission">
+            <option *ngFor="let transmission of listOfTransmission" [value]="transmission">{{ transmission }}</option>
+          </select>
+        </div>
+  
+        <!-- Color -->
+        <div class="form-group">
+          <label>Select Color</label>
+          <select class="form-control custom-select" formControlName="color">
+            <option *ngFor="let color of listOfColor" [value]="color">{{ color }}</option>
+          </select>
+        </div>
+  
+        <!-- Model Year -->
+       <!-- Year -->
+       <!-- <div nz-col nzSpan="12">
+        <nz-form-item>
+          <nz-form-label [nzSpan]="24">Manufacturing Year</nz-form-label>
+          <nz-form-control nzErrorTip="This field is required">
+            <nz-date-picker nzMode="year" nzPlaceHolder="Select Year" formControlName="year"></nz-date-picker>
+          </nz-form-control>
+        </nz-form-item>
+      </div> -->
+  
+        <!-- Price -->
+        <div class="form-group">
+          <label>Price</label>
+          <input type="number" class="form-control" formControlName="price" placeholder="Enter Price" />
+        </div>
+  
+        <!-- Description -->
+        <div class="form-group">
+          <label>Description</label>
+          <textarea class="form-control" rows="3" formControlName="description" placeholder="Enter Description"></textarea>
+        </div>
+  
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary" (click)="updateCar()">Update</button>
+      </form>
+    </div>
+  </div>
+  

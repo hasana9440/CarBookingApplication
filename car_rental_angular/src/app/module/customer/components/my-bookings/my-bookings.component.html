@@ -1,0 +1,33 @@
+<div class="spinner">
+  <!-- Add your spinner/loader here if needed -->
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col" style="font-weight: bolder; color: #003973;">From</th>
+        <th scope="col" style="font-weight: bolder; color: #003973;">To</th>
+        <th scope="col" style="font-weight: bolder; color: #003973;">Days</th>
+        <th scope="col" style="font-weight: bolder; color: #003973;">Price</th>
+        <th scope="col" style="font-weight: bolder; color: #003973;">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookedCars">
+        <td>{{ booking.fromDate | date: 'MMM d, y' }}</td>
+        <td>{{ booking.toDate | date: 'MMM d, y' }}</td>
+        <td>{{ booking.days }}</td>
+        <td>${{ booking.price }}</td>
+        <td>
+          <strong [ngClass]="{
+            'text-success': booking.bookCarStatus === 'APPROVED',
+            'text-danger': booking.bookCarStatus !== 'APPROVED'
+          }">
+            {{ booking.bookCarStatus }}
+          </strong>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

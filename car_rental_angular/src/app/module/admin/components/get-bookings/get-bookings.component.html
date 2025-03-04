@@ -1,0 +1,44 @@
+<div class="spinner">
+    <!-- Add your spinner/loader here if needed -->
+  </div>
+  
+  <div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr>
+        
+          <th scope="col" style="font-weight: bolder; color: #003973;">Email</th>
+          <th scope="col" style="font-weight: bolder; color: #003973;">From Date</th>
+          <th scope="col" style="font-weight: bolder; color: #003973;">To Date</th>
+          <th scope="col" style="font-weight: bolder; color: #003973;">Days</th>
+          <th scope="col" style="font-weight: bolder; color: #003973;">Price</th>
+          <th scope="col" style="font-weight: bolder; color: #003973;">Status</th>
+          <th scope="col" style="font-weight: bolder; color: #003973;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of bookedCars">
+            <td>{{ booking.userName }}</td>
+            
+          <td>{{ booking.fromDate | date: 'MMM d, y' }}</td>
+          <td>{{ booking.toDate | date: 'MMM d, y' }}</td>
+          <td>{{ booking.days }}</td>
+          <td>${{ booking.price }}</td>
+          <td>
+            <strong [ngClass]="{
+              'text-success': booking.bookCarStatus === 'APPROVED',
+              'text-danger': booking.bookCarStatus !== 'APPROVED'
+            }">
+              {{ booking.bookCarStatus }}
+            </strong>
+          </td>
+          <td>
+            <span *ngIf ="booking.bookCarStatus == 'PENDING' ">
+                <button style="margin-left: 10px;" class="btn btn-success"(click)="changeBookingStatus(booking.id,'APPROVE')">Approve</button>
+                <button style="margin-left: 10px;" class="btn btn-danger" (click)="changeBookingStatus(booking.id,'REJECT')">Reject</button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

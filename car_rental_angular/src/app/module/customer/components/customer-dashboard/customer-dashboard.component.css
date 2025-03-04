@@ -1,0 +1,140 @@
+/* ====== General Styles ====== */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Ensures cards are stacked */
+  gap: 20px;
+}
+
+/* ====== Card Styles ====== */
+.car-card {
+  width: 100%; /* Full width */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  background: #ffffff;
+}
+
+.car-card:hover {
+  transform: scale(1.02);
+}
+
+/* ====== Card Content ====== */
+.car-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ====== Car Image ====== */
+.car-image-container {
+  flex-shrink: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.car-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+}
+
+/* ====== Car Details ====== */
+.car-details {
+  flex-grow: 1;
+}
+
+.car-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.car-description {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.car-info {
+  font-size: 16px;
+  color: #444;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* ====== Buttons ====== */
+.button-group {
+  display: flex;
+  gap: 15px;
+}
+
+.update-btn,
+.delete-btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.update-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.update-btn:hover {
+  background-color: #0056b3;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #a71d2a;
+}
+
+/* ====== Card Background Variants ====== */
+.card-style-0 {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+}
+
+.card-style-1 {
+  background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+}
+
+.card-style-2 {
+  background: linear-gradient(135deg, #fad0c4, #ffd1ff);
+}
+
+.card-style-3 {
+  background: linear-gradient(135deg, #ffb347, #ffcc33);
+}
+
+/* ====== Responsive Design ====== */
+@media (max-width: 768px) {
+  .car-content {
+    flex-direction: column; /* Stack image and details vertically */
+    text-align: center;
+  }
+
+  .car-image-container {
+    width: 100%;
+    height: 200px;
+  }
+
+  .button-group {
+    justify-content: center;
+  }
+}
