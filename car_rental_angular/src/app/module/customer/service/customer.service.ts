@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StorageService } from '../../../auth/services/storage/storage.service';
-const Basic_url =["http://localhost:4041"]
+const Basic_url =["http://localhost:8080"]
 @Injectable({
   providedIn: 'root'
 })
